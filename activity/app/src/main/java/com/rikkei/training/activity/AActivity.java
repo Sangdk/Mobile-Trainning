@@ -14,7 +14,7 @@ public class AActivity extends AppCompatActivity implements View.OnClickListener
     private static final String TAG =AActivity.class.getSimpleName();
     private Button mButton;
     private MediaManager media;
-    private String link ="/system/media/audio/notifications/Beryllium.ogg";
+    private String link ="/storage/emulated/0/Download/ChungTaKhongThuocVeNhau-SonTungMTP-4528181.mp3";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +33,7 @@ public class AActivity extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onStart() {
         super.onStart();
+        media.start();
         Log.d(TAG,"on Start");
     }
 
@@ -45,6 +46,7 @@ public class AActivity extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onPause() {
         super.onPause();
+        media.pause();
         Log.d(TAG,"on Pause");
     }
 

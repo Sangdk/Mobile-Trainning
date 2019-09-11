@@ -24,7 +24,6 @@ public class MediaManager {
     public void create(){
         Uri uri = Uri.parse(link);
         player = MediaPlayer.create(context,uri);
-        start();
     }
 
     public void start(){

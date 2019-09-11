@@ -4,6 +4,8 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.provider.MediaStore;
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class SystemData {
@@ -25,12 +27,14 @@ public class SystemData {
         int indexTitle = cursor.getColumnIndex(MediaStore.Audio.AudioColumns.TITLE);
         int indexData = cursor.getColumnIndex(MediaStore.Audio.AudioColumns.DATA);
 
-        for (int i = 0; i <3 ; i++) {
+        while (cursor.isAfterLast() == false) {
 
             String data = cursor.getString(indexData);
             String name = cursor.getString(indexTitle);
-            Song song = new Song(data,name);
-            arr.add(song);
+//            Song song = new Song(data,name);
+//            arr.add(song);
+            Log.d("Data: ",data);
+            cursor.moveToNext();
         }
         return arr;
     }

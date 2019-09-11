@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = MainActivity.class.getSimpleName();
     private Button mButton;
     private MediaManager media;
-    private String link = "/system/media/audio/notifications/Beryllium.ogg";
+    private String link = "/storage/emulated/0/Download/EmCuaNgayHomQua-SonTungMTP-2882720.mp3";
     private final String[] PERMISSIONS = {
             Manifest.permission.READ_EXTERNAL_STORAGE
     };
@@ -56,11 +56,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initViews() {
-//        data = new SystemData(this);
         mButton = findViewById(R.id.btn_act_a);
         mButton.setOnClickListener(this);
-//        ArrayList<Song> arr = data.getData();
-//        arr.size();
         media = new MediaManager(link,this);
         media.create();
     }
@@ -68,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
+        media.start();
         Log.d(TAG, "on Start");
     }
 
@@ -80,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onPause() {
         super.onPause();
+        media.pause();
         Log.d(TAG, "on Pause");
     }
 
