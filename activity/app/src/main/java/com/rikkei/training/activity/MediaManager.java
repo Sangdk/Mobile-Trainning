@@ -36,4 +36,17 @@ public class MediaManager {
             player.stop();
         }
     }
+
+    public void seek(int position){
+        if (player != null){
+            player.seekTo(position);
+        }
+    }
+
+    public int currentPosition(){
+        if (player!= null){
+            return player.getCurrentPosition();
+        }
+        return 0;
+    }
 }

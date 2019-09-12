@@ -19,4 +19,12 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="@string/activity_a" />
+    <Button
+        android:layout_margin="@dimen/dp_16"
+        android:layout_centerHorizontal="true"
+        android:text="@string/rotate_act"
+        android:layout_below="@id/btn_act_a"
+        android:id="@+id/btn_act_rotate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </RelativeLayout>

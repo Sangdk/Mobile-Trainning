@@ -13,7 +13,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = MainActivity.class.getSimpleName();
-    private Button mButton;
+    private Button mButtonActA;
+    private Button mButtonActR;
     private MediaManager media;
     private String link = "/storage/emulated/0/Download/Di Du Dua Di - Bich Phuong.mp3";
     private final String[] PERMISSIONS = {
@@ -54,12 +55,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initViews() {
-        mButton = findViewById(R.id.btn_act_a);
-        mButton.setOnClickListener(this);
+        mButtonActA = findViewById(R.id.btn_act_a);
+        mButtonActA.setOnClickListener(this);
+
+        mButtonActR = findViewById(R.id.btn_act_rotate);
+        mButtonActR.setOnClickListener(this);
 
         data = new SystemData(this);
         data.readData();
-        media = new MediaManager(link,this);
+        media = new MediaManager(link, this);
         media.create();
     }
 
@@ -97,8 +101,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this, AActivity.class);
-        media.pause();
-        startActivity(intent);
+        switch (view.getId()) {
+            case R.id.btn_act_a:
+                Intent intentA = new Intent(this, AActivity.class);
+                media.pause();
+                startActivity(intentA);
+                break;
+            case R.id.btn_act_rotate:
+                Intent intentR = new Intent(this, RotateActivity.class);
+                media.stop();
+                startActivity(intentR);
+                break;
+        }
     }
 }
