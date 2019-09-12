@@ -11,13 +11,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = MainActivity.class.getSimpleName();
     private Button mButton;
     private MediaManager media;
-    private String link = "/storage/emulated/0/Download/EmCuaNgayHomQua-SonTungMTP-2882720.mp3";
+    private String link = "/storage/emulated/0/Download/Di Du Dua Di - Bich Phuong.mp3";
     private final String[] PERMISSIONS = {
             Manifest.permission.READ_EXTERNAL_STORAGE
     };
@@ -58,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initViews() {
         mButton = findViewById(R.id.btn_act_a);
         mButton.setOnClickListener(this);
+
+        data = new SystemData(this);
+        data.readData();
         media = new MediaManager(link,this);
         media.create();
     }
@@ -78,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onPause() {
         super.onPause();
-        media.pause();
         Log.d(TAG, "on Pause");
     }
 
@@ -91,12 +91,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        media.stop();
         Log.d(TAG, "on Destroy");
     }
 
     @Override
     public void onClick(View view) {
         Intent intent = new Intent(this, AActivity.class);
+        media.pause();
         startActivity(intent);
     }
 }

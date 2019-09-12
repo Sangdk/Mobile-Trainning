@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Activity Kotlin</string>
+    <string name="activity_a">Activity A</string>
+    <string name="gt_b">go to act b</string>
+    <string name="gt_a">go to act a</string>
+    <string name="activity_b">Activity B</string>
+</resources>

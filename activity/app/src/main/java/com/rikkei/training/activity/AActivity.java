@@ -1,7 +1,4 @@
 package com.rikkei.training.activity;
-
-import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +11,7 @@ public class AActivity extends AppCompatActivity implements View.OnClickListener
     private static final String TAG =AActivity.class.getSimpleName();
     private Button mButton;
     private MediaManager media;
-    private String link ="/storage/emulated/0/Download/ChungTaKhongThuocVeNhau-SonTungMTP-4528181.mp3";
+    private String link ="/storage/emulated/0/Download/Ket Thuc Lau Roi - Le Bao Binh.mp3";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +61,7 @@ public class AActivity extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
+        media.stop();
+        finish();
     }
 }
