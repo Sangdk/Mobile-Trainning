@@ -4,4 +4,5 @@
     <string name="gt_b">go to act b</string>
     <string name="gt_a">go to act a</string>
     <string name="activity_b">Activity B</string>
+    <string name="rotate_act">Activity Rotate</string>
 </resources>

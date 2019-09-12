@@ -13,11 +13,25 @@ class AActivity : AppCompatActivity(), View.OnClickListener {
     private var link = "/storage/emulated/0/Download/Di Du Dua Di - Bich Phuong.mp3"
     private var media: MediaManager? = null
     private var data: SystemData? = null
-    private val mPERMISSION: List<String> = listOf(android.Manifest.permission.READ_EXTERNAL_STORAGE)
+    private val mPERMISSION: List<String> =
+        listOf(android.Manifest.permission.READ_EXTERNAL_STORAGE)
 
     override fun onClick(p0: View?) {
+        when (p0!!.id) {
+            R.id.btn_act_b -> toActA()
+            R.id.btn_act_rotate -> toActR()
+        }
+    }
+
+    private fun toActA() {
         media!!.pause()
-        var intent = Intent(this, BActivity::class.java)
+        val intent = Intent(this, BActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun toActR() {
+        media!!.stop()
+        val intent = Intent(this, RotateActivity::class.java)
         startActivity(intent)
     }
 
@@ -32,10 +46,10 @@ class AActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun checkPermission(): Boolean {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            for ( p in mPERMISSION){
-                if (checkSelfPermission(p)!= PackageManager.PERMISSION_GRANTED){
-                    requestPermissions(mPERMISSION.toTypedArray(),0)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            for (p in mPERMISSION) {
+                if (checkSelfPermission(p) != PackageManager.PERMISSION_GRANTED) {
+                    requestPermissions(mPERMISSION.toTypedArray(), 0)
                     return false
                 }
             }
@@ -49,6 +63,7 @@ class AActivity : AppCompatActivity(), View.OnClickListener {
         media = MediaManager(this, link)
         setContentView(R.layout.activity_a)
         btn_act_a.setOnClickListener(this)
+        btn_act_rotate.setOnClickListener(this)
         media!!.create()
     }
 

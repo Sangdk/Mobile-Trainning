@@ -9,7 +9,7 @@ import android.util.Log;
 
 public class RotateActivity extends AppCompatActivity {
     private MediaPlayer mMedia;
-    public static final String POSITION_KEY = "POSITION";
+    public static final String POSITION_KEY = "position";
 
     @Override
     protected void onCreate(Bundle savePosition) {
