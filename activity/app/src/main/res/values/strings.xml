@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">activity</string>
-    <string name="activity_a">activity a</string>
-    <string name="activity_main">activity main</string>
+    <string name="activity_a">Activity A</string>
+    <string name="activity_main">Activity Main</string>
     <string name="rotate_act">Activity Rotate</string>
+    <string name="cmr">Camera</string>
+    <string name="activity_b">Activity B</string>
+    <string name="activity_c">Activity C</string>
+    <string name="activity_d">Activity D</string>
+    <string name="activity_e">Activity E</string>
+    <string name="str_b_for_result">Start B for Result</string>
+    <string name="str_c_finish">Start C and Finish</string>
 </resources>

@@ -1,8 +1,17 @@
 <resources>
     <string name="app_name">Activity Kotlin</string>
     <string name="activity_a">Activity A</string>
-    <string name="gt_b">go to act b</string>
-    <string name="gt_a">go to act a</string>
+    <string name="gt_b">Go to act B</string>
+    <string name="gt_a">Go to act A</string>
     <string name="activity_b">Activity B</string>
     <string name="rotate_act">Activity Rotate</string>
+    <string name="cmr">Camera</string>
+    <string name="activity_c">Activity C</string>
+    <string name="activity_d">Activity D</string>
+    <string name="activity_e">Activity E</string>
+    <string name="gt_c">Go to act C</string>
+    <string name="gt_d">Go to act D</string>
+    <string name="gt_e">Go to act E</string>
+    <string name="str_b_for_result">Start Act B For Result</string>
+    <string name="str_c_finish">Start C And Finish</string>
 </resources>

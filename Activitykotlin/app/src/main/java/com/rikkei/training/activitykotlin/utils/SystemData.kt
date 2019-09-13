@@ -1,4 +1,4 @@
-package com.rikkei.training.activitykotlin
+package com.rikkei.training.activitykotlin.utils
 
 import android.content.ContentResolver
 import android.content.Context

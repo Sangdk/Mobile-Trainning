@@ -1,4 +1,4 @@
-package com.rikkei.training.activity;
+package com.rikkei.training.activity.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.rikkei.training.activity.R;
 
 public class RotateActivity extends AppCompatActivity {
     private MediaPlayer mMedia;

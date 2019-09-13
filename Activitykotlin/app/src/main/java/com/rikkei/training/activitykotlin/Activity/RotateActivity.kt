@@ -1,8 +1,9 @@
-package com.rikkei.training.activitykotlin
+package com.rikkei.training.activitykotlin.Activity
 
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.rikkei.training.activitykotlin.R
 
 class RotateActivity : AppCompatActivity() {
     private var mMedia: MediaPlayer? = null

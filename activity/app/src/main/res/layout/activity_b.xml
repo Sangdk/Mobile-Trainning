@@ -3,31 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/dp_16"
-    tools:context=".Activity.BActivity">
-
+    tools:context=".activity.BActivity"
+    android:padding="@dimen/dp_16">
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="@string/activity_b"
         android:textSize="@dimen/sp_26"
-        android:textStyle="bold" />
-
+        android:text="@string/activity_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <Button
-        android:id="@+id/btn_bc"
+        android:id="@+id/btn_act_bc"
+        android:textAllCaps="false"
+        android:text="@string/activity_c"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/gt_c"
-        android:textAllCaps="false" />
-
+        android:layout_centerInParent="true"/>
     <Button
+        android:textAllCaps="false"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btn_act_bc"
+        android:text="@string/str_c_finish"
         android:id="@+id/btn_str_c_finish"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btn_bc"
-        android:layout_centerHorizontal="true"
-        android:text="@string/str_c_finish"
-        android:textAllCaps="false" />
+        android:layout_height="wrap_content"/>
 </RelativeLayout>

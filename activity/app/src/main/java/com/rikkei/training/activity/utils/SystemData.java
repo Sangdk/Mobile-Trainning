@@ -1,4 +1,4 @@
-package com.rikkei.training.activity;
+package com.rikkei.training.activity.utils;
 
 import android.content.ContentResolver;
 import android.content.Context;
