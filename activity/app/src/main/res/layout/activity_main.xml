@@ -42,15 +42,17 @@
         android:text="@string/cmr" />
 
     <FrameLayout
+        android:layout_centerHorizontal="true"
         android:id="@+id/cdn_layout"
         android:layout_width="500dp"
         android:layout_height="@dimen/dp_200"
         android:layout_below="@+id/txt">
 
         <VideoView
+            android:layout_gravity="center"
             android:id="@+id/video_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <ImageView
             android:id="@+id/img"
