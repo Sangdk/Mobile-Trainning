@@ -2,13 +2,11 @@ package com.rikkei.training.activity.activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -18,11 +16,12 @@ import android.widget.VideoView;
 
 import com.rikkei.training.activity.MediaManager;
 import com.rikkei.training.activity.R;
+import com.rikkei.training.activity.base.BaseActivity;
 import com.rikkei.training.activity.utils.SystemData;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String TAG = MainActivity.class.getSimpleName();
-    private static final int REQUEST_VIDEO_CAPTURE = 1;
+public class MainActivity extends BaseActivity implements View.OnClickListener {
+    private final String TAG = MainActivity.class.getSimpleName();
+    private final int REQUEST_VIDEO_CAPTURE = 1;
     private Button mButtonActA;
     private Button mButtonActR;
     private Button mButtonCmr;
@@ -37,12 +36,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SystemData data;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initData() {
+        data.readData();
+        handleDisplay();
+        mMedia.create();
+    }
+
+    @Override
+    protected void initViews() {
         Log.d(TAG, "on Create");
-        setContentView(R.layout.activity_main);
         if (checkPermission()) {
-            initViews();
+            mButtonActA = findViewById(R.id.btn_act_a);
+            mButtonActR = findViewById(R.id.btn_act_rotate);
+            mButtonCmr = findViewById(R.id.btn_cmr);
+            mVideo = findViewById(R.id.video_view);
+            mImg = findViewById(R.id.img);
+            mMedia = new MediaManager(link, this);
+            mButtonActA.setOnClickListener(this);
+            mButtonActR.setOnClickListener(this);
+            mButtonCmr.setOnClickListener(this);
+            data = new SystemData(this);
         }
     }
 
@@ -68,33 +81,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void initViews() {
-        mButtonActA = findViewById(R.id.btn_act_a);
-        mButtonActR = findViewById(R.id.btn_act_rotate);
-        mButtonCmr = findViewById(R.id.btn_cmr);
-        mVideo = findViewById(R.id.video_view);
-        mImg = findViewById(R.id.img);
-        mButtonActA.setOnClickListener(this);
-        mButtonActR.setOnClickListener(this);
-        mButtonCmr.setOnClickListener(this);
-        data = new SystemData(this);
-        data.readData();
-        handleDisplay();
-        mMedia = new MediaManager(link, this);
-        mMedia.create();
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
     }
 
     private void handleDisplay() {
         Intent receiveIntent = getIntent();
         String action = receiveIntent.getAction();
         String type = receiveIntent.getType();
-        if (action.equals(Intent.ACTION_SEND)){
-            if(type.startsWith("image/")){
+        if (action.equals(Intent.ACTION_SEND)) {
+            if (type.startsWith("image/")) {
                 Uri uri = receiveIntent.getParcelableExtra(Intent.EXTRA_STREAM);
                 mVideo.setVisibility(View.GONE);
                 mImg.setVisibility(View.VISIBLE);
                 mImg.setImageURI(uri);
-            }else if (type.startsWith("video/")){
+            } else if (type.startsWith("video/")) {
                 Uri uri = receiveIntent.getParcelableExtra(Intent.EXTRA_STREAM);
                 mImg.setVisibility(View.GONE);
                 mVideo.setVisibility(View.VISIBLE);
@@ -165,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_VIDEO_CAPTURE && resultCode == RESULT_OK){
+        if (requestCode == REQUEST_VIDEO_CAPTURE && resultCode == RESULT_OK) {
             mImg.setVisibility(View.GONE);
             Uri uri = data.getData();
             mVideo.setVideoURI(uri);

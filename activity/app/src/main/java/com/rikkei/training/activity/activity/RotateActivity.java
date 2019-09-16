@@ -8,22 +8,24 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.rikkei.training.activity.R;
+import com.rikkei.training.activity.base.BaseActivity;
 
 public class RotateActivity extends AppCompatActivity {
     private MediaPlayer mMedia;
-    public static final String POSITION_KEY = "position";
+    public final String POSITION_KEY = "position";
 
     @Override
     protected void onCreate(Bundle savePosition) {
         super.onCreate(savePosition);
         setContentView(R.layout.activity_rotate);
+        Log.d("Rotate", "on Create");
         mMedia = MediaPlayer.create(this, R.raw.music);
         mMedia.start();
         if (savePosition != null) {
             int position = savePosition.getInt(POSITION_KEY);
             mMedia.seekTo(position);
         }
-        Log.d("Rotate", "on Create");
+
     }
 
     @Override
