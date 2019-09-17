@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.rikkei.training.ui.model.Image;
+
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ImageHolder> {

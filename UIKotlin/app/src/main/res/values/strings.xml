@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UI</string>
+    <string name="app_name">UI Kotlin</string>
     <string name="act_toolbar">Activity Toolbar</string>
     <string name="action_settings">settings</string>
 </resources>

@@ -1,16 +1,21 @@
-package com.rikkei.training.ui;
+package com.rikkei.training.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import com.rikkei.training.ui.Adapter;
+import com.rikkei.training.ui.model.Image;
+import com.rikkei.training.ui.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView recyclerLinear;
     private RecyclerView recyclerGrid;
     private RecyclerView recyclerStaggered;
@@ -18,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Adapter adapterGrid;
     private List<Image> data;
     private List<Image> dataGrid;
+    private Button mButtonToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void initData() {
         data = new ArrayList<>();
+        data.add(new Image(R.drawable.ic_launcher_background));
+        data.add(new Image(R.drawable.ic_launcher_background));
+        data.add(new Image(R.drawable.ic_launcher_background));
+        data.add(new Image(R.drawable.ic_launcher_background));
+        data.add(new Image(R.drawable.ic_launcher_background));
+        data.add(new Image(R.drawable.ic_launcher_background));
+        data.add(new Image(R.drawable.ic_launcher_background));
+        data.add(new Image(R.drawable.ic_launcher_background));
+        data.add(new Image(R.drawable.ic_launcher_background));
+        data.add(new Image(R.drawable.ic_launcher_background));
+        data.add(new Image(R.drawable.ic_launcher_background));
+        data.add(new Image(R.drawable.ic_launcher_background));
         data.add(new Image(R.drawable.ic_launcher_background));
         data.add(new Image(R.drawable.ic_launcher_background));
         data.add(new Image(R.drawable.ic_launcher_background));
@@ -56,11 +74,20 @@ public class MainActivity extends AppCompatActivity {
         recyclerLinear.setAdapter(adapter);
         recyclerGrid.setAdapter(adapterGrid);
         recyclerStaggered.setAdapter(adapter);
+        recyclerStaggered.setNestedScrollingEnabled(false);
     }
 
     private void initView() {
         recyclerLinear = findViewById(R.id.recycler_linear);
         recyclerGrid = findViewById(R.id.recycler_grid);
         recyclerStaggered = findViewById(R.id.recycler_staggered);
+        mButtonToolbar = findViewById(R.id.btn_actToolbar);
+        mButtonToolbar.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(this, ToolbarActivity.class);
+        startActivity(intent);
     }
 }

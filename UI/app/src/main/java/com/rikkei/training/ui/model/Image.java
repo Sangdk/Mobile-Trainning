@@ -1,4 +1,4 @@
-package com.rikkei.training.ui;
+package com.rikkei.training.ui.model;
 
 import androidx.annotation.DrawableRes;
 
