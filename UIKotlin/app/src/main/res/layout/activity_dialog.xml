@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_brightness"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="@string/bright_dialog_message"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_erase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_brightness"
+        android:text="@string/erase"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_multi_choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_erase"
+        android:text="@string/multi_choice"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_picker_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_multi_choice"
+        android:text="@string/number_picker"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_time_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_picker_dialog"
+        android:text="@string/time_picker"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_date_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_time_picker"
+        android:text="@string/date_picker"
+        android:textAllCaps="false" />
+</RelativeLayout>

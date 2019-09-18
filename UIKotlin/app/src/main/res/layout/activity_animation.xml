@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="16dp">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_10" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_120"
+        android:clipToPadding="false"
+        android:paddingLeft="@dimen/dp_40"
+        android:paddingRight="@dimen/dp_40" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_anim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp_16" />
+</LinearLayout>

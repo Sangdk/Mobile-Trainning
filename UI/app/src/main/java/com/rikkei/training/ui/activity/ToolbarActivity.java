@@ -1,10 +1,12 @@
 package com.rikkei.training.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.palette.graphics.Palette;
 
@@ -84,6 +86,17 @@ public class ToolbarActivity extends BaseActivity<ActivityToolbarBinding> {
         getMenuInflater().inflate(R.menu.menu_toolbar,menu);
         collapseMenu = menu;
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_show_dialog:
+                Intent intent = new Intent(this,DialogActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

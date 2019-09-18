@@ -1,5 +1,22 @@
 <resources>
     <string name="app_name">UI</string>
     <string name="act_toolbar">Activity Toolbar</string>
-    <string name="action_settings">settings</string>
+    <string name="action_show_dialog">Show dialog fragment</string>
+    <string name="bright_dialog_message">Brightness</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="check_box">Automatic brightness</string>
+    <string name="erase_dialog_title">Erase USB storage?</string>
+    <string name="erase_dialog_message">You\'ll lose all photo and media!</string>
+    <string name="erase">Erase Dialog</string>
+    <string name="Onion">Onion</string>
+    <string name="Tomato">Tomato</string>
+    <string name="Lettuce">Lettuce</string>
+    <string name="pick_toppings">Pick your toppings</string>
+    <string name="multi_choice">Multi choice Dialog</string>
+    <string name="message_limit">Set number of message to save</string>
+    <string name="number_picker_dialog">Text message limit</string>
+    <string name="number_picker">Number Picker Dialog</string>
+    <string name="time_picker">Time Picker Dialog</string>
+    <string name="date_picker">Date Picker Dialog</string>
 </resources>

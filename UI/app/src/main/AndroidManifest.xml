@@ -16,6 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.ToolbarActivity" />
+        <activity android:name=".activity.DialogActivity"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>
