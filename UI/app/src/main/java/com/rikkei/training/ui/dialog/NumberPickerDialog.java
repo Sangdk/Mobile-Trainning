@@ -19,36 +19,19 @@ import com.rikkei.training.ui.R;
 import com.rikkei.training.ui.base.BaseDialogFragment;
 import com.rikkei.training.ui.databinding.DialogMessageLimitBinding;
 
-public class NumberPickerDialog extends BaseDialogFragment implements NumberPicker.OnValueChangeListener {
+public class NumberPickerDialog extends BaseDialogFragment {
     private DialogMessageLimitBinding binding;
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.dialog_message_limit, container, false);
-        return binding.getRoot();
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        init();
-    }
-
-    private void init() {
-        final String[] values = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
-        binding.numberPicker.setDisplayedValues(values);
-        binding.numberPicker.setMinValue(1);
-        binding.numberPicker.setMaxValue(8);
-        binding.numberPicker.setOnValueChangedListener(this);
-    }
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        binding = DataBindingUtil.inflate(inflater, R.layout.dialog_message_limit, null, false);
+        binding.numberPicker.setMinValue(1);
+        binding.numberPicker.setMaxValue(8);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.number_picker_dialog)
-                .setView(inflater.inflate(R.layout.dialog_message_limit, null))
+                .setView(binding.getRoot())
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -61,16 +44,10 @@ public class NumberPickerDialog extends BaseDialogFragment implements NumberPick
 
                     }
                 });
-
         return builder.create();
     }
 
     public NumberPickerDialog(Context context) {
         super(context);
-    }
-
-    @Override
-    public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-        Toast.makeText(getContext(), numberPicker.getValue(), Toast.LENGTH_SHORT).show();
     }
 }

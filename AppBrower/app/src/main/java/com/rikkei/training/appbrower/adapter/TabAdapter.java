@@ -1,4 +1,4 @@
-package com.rikkei.training.appbrower;
+package com.rikkei.training.appbrower.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.rikkei.training.appbrower.MainActivity;
+import com.rikkei.training.appbrower.R;
+import com.rikkei.training.appbrower.WebViewFragment;
 import com.rikkei.training.appbrower.databinding.ItemTabBinding;
+import com.rikkei.training.appbrower.model.TabHost;
 
 import java.util.List;
 
@@ -66,17 +70,20 @@ public class TabAdapter extends RecyclerView.Adapter<TabAdapter.TabHolder> {
             this.binding = binding;
         }
 
-        public void bindData(TabHost item, final int position) {
+        public void bindData(final TabHost item, final int position) {
             binding.itemTab.setText(item.getName());
             item.setButtonDel(binding.btnDelTab);
             binding.btnDelTab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    data.remove(position);
+                    MainActivity main = (MainActivity) data.get(position).getWebViewFragment().getActivity();
+                    main.removeFrag((WebViewFragment) data.get(position).getWebViewFragment());
                     if (position > 0) {
+                        main.showFragment((WebViewFragment) data.get(position - 1).getWebViewFragment());
                         data.get(position - 1).setFocus(true);
                         data.get(position - 1).getButtonDel().setVisibility(View.VISIBLE);
                     }
+                    data.remove(position);
                     notifyDataSetChanged();
                 }
             });

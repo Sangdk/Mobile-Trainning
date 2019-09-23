@@ -8,4 +8,7 @@
     <dimen name="sp_17">17sp</dimen>
     <dimen name="dp_20">20dp</dimen>
     <dimen name="dp_6">6dp</dimen>
+    <dimen name="dp_700">700dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_25">25dp</dimen>
 </resources>

@@ -3,4 +3,6 @@
     <string name="hint">Enter URL here...</string>
     <string name="bookmark">Bookmark</string>
     <string name="history">History</string>
+    <string name="new_tab">New Tab</string>
+    <string name="cancel">Cancel</string>
 </resources>

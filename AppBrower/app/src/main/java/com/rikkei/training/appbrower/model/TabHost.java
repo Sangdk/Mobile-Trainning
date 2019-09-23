@@ -1,19 +1,30 @@
-package com.rikkei.training.appbrower;
+package com.rikkei.training.appbrower.model;
 
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 public class TabHost {
     private String mName;
     private Boolean mIsFocus;
     @Nullable
     private View mButtonDel;
+    private Fragment mWebViewFragment;
 
-    public TabHost(String name, Boolean isFocus, View mButtonDel) {
+    public TabHost(String name, Boolean isFocus, View mButtonDel, Fragment mWebViewFragment) {
         this.mName = name;
         this.mIsFocus = isFocus;
         this.mButtonDel = mButtonDel;
+        this.mWebViewFragment = mWebViewFragment;
+    }
+
+    public Fragment getWebViewFragment() {
+        return mWebViewFragment;
+    }
+
+    public void setWebViewFragment(Fragment mWebViewFragment) {
+        this.mWebViewFragment = mWebViewFragment;
     }
 
     public String getName() {

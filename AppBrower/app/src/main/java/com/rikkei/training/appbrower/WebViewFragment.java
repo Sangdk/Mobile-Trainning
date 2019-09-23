@@ -2,13 +2,13 @@ package com.rikkei.training.appbrower;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,11 +28,14 @@ public class WebViewFragment extends Fragment {
         return binding.getRoot();
     }
 
-    public void setUrl(String url) {
+    public String getUrl() {
+        String url = binding.edtUrl.getText().toString();
         this.url = url;
+        return url;
     }
 
-    public void showWebView(String url) {
+    public void loadURL() {
+        binding.textNewTab.setVisibility(View.INVISIBLE);
         final Dialog dialog = new Dialog(getContext());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_loading);
@@ -45,7 +48,6 @@ public class WebViewFragment extends Fragment {
                 dialog.dismiss();
             }
         });
-
         if (url.startsWith("https://")) {
             binding.webView.loadUrl(url);
         } else {

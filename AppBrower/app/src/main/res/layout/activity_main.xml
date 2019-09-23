@@ -34,30 +34,28 @@
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_add" />
 
+            <ImageView
+                android:layout_toLeftOf="@id/menu"
+                android:id="@+id/bookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_bookmark" />
+
             <ImageButton
                 android:id="@+id/menu"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_bookmark" />
+                android:src="@drawable/ic_settings" />
         </RelativeLayout>
-
-        <EditText
-            android:id="@+id/edt_url"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint"
-            android:singleLine="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
         <FrameLayout
             android:id="@+id/label"
             android:layout_width="match_parent"
-            android:layout_height="600dp"
+            android:layout_height="@dimen/dp_700"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_url" />
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
         <RelativeLayout
             android:layout_width="match_parent"
