@@ -11,9 +11,9 @@ public class History {
     @ColumnInfo(name = "url")
     private String url;
     @ColumnInfo(name = "isBookmark")
-    private boolean isBookmark;
+    private int isBookmark;
 
-    public History(String url, boolean isBookmark) {
+    public History(String url, int isBookmark) {
         this.url = url;
         this.isBookmark = isBookmark;
     }
@@ -34,11 +34,11 @@ public class History {
         this.url = url;
     }
 
-    public boolean isBookmark() {
+    public int getIsBookmark() {
         return isBookmark;
     }
 
-    public void setBookmark(boolean bookmark) {
-        this.isBookmark = bookmark;
+    public void setIsBookmark(int isBookmark) {
+        this.isBookmark = isBookmark;
     }
 }

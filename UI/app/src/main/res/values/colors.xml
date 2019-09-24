@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="fab_bg">#279AF1</color>
-    <color name="primary_500">#3F51B5</color>
     <color name="black_trans80">#33000000</color>
+    <color name="primary_500">#3F51B5</color>
     <color name="accent_500">#E91E63</color>
     <color name="primary_700">#303F9F</color>
 </resources>

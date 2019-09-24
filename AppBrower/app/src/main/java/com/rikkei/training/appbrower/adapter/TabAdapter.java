@@ -9,9 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rikkei.training.appbrower.MainActivity;
+import com.rikkei.training.appbrower.screen.MainActivity;
 import com.rikkei.training.appbrower.R;
-import com.rikkei.training.appbrower.WebViewFragment;
+import com.rikkei.training.appbrower.screen.WebViewFragment;
 import com.rikkei.training.appbrower.databinding.ItemTabBinding;
 import com.rikkei.training.appbrower.model.TabHost;
 

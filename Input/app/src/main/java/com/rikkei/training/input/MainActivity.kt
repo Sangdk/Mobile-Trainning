@@ -1,6 +1,6 @@
 package com.rikkei.training.input
 
-import android.content.res.Resources
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         setFocus(binding!!.num1, arrKey[1])
     }
 
-    protected fun createKey() {
+    private fun createKey() {
 
         val k_0 = Key(binding!!.num0, "0", KeyEvent.KEYCODE_0, null, null, null, null)
         val k_1 = Key(binding!!.num1, "1", KeyEvent.KEYCODE_1, null, null, null, null)
@@ -249,7 +249,7 @@ class MainActivity : AppCompatActivity() {
         setKeyFocus(keyFocus)
     }
 
-    fun setKeyFocus(keyFocus: Key?) {
+    private fun setKeyFocus(keyFocus: Key?) {
         this.keyFocus = keyFocus
     }
 
@@ -262,7 +262,7 @@ class MainActivity : AppCompatActivity() {
 
         if (event.action == KeyEvent.ACTION_DOWN) {
             for (k in arrKey) {
-                if (k.keyCode === event.getKeyCode()) {
+                if (k.keyCode == event.keyCode) {
                     setFocus(k.view!!, k)
                 }
             }
@@ -294,7 +294,7 @@ class MainActivity : AppCompatActivity() {
             }
         } else if (event.action == KeyEvent.ACTION_UP) {
             for (k in arrKey) {
-                if (k.keyCode === event.keyCode) {
+                if (k.keyCode == event.keyCode) {
                     setNormalState(k.view!!)
                 }
             }

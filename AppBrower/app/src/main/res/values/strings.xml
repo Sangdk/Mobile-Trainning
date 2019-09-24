@@ -5,4 +5,6 @@
     <string name="history">History</string>
     <string name="new_tab">New Tab</string>
     <string name="cancel">Cancel</string>
+    <string name="bookmark_success">Save bookmark success</string>
+    <string name="bookmark_failure">Save bookmark failure</string>
 </resources>

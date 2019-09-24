@@ -20,5 +20,5 @@ public interface HistoryDao {
     void insertAll(History... history);
 
     @Query("UPDATE history SET isBookmark =1 WHERE id= :id")
-    void setFavorite(long id);
+    void setBookmark(long id);
 }

@@ -12,13 +12,13 @@ import androidx.databinding.DataBindingUtil;
 
 import com.rikkei.training.appbrower.R;
 import com.rikkei.training.appbrower.adapter.URLAdapter;
-import com.rikkei.training.appbrower.databinding.DialogHistoryBinding;
+import com.rikkei.training.appbrower.databinding.DialogBookmarkBinding;
 
-public class DialogHistory extends BaseDialog {
-    private DialogHistoryBinding binding;
+public class DialogBookmark extends BaseDialog {
     private URLAdapter adapter;
+    private DialogBookmarkBinding binding;
 
-    public DialogHistory(Context context, URLAdapter adapter) {
+    public DialogBookmark(Context context, URLAdapter adapter) {
         super(context);
         this.adapter = adapter;
     }
@@ -26,11 +26,11 @@ public class DialogHistory extends BaseDialog {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.dialog_history, null, false);
-        binding.recyclerHistory.setAdapter(adapter);
+        binding = DataBindingUtil.inflate(inflater, R.layout.dialog_bookmark, null, false);
+        binding.recyclerBookmark.setAdapter(adapter);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.history)
-                .setIcon(R.drawable.ic_history)
+        builder.setTitle(R.string.bookmark)
+                .setIcon(R.drawable.ic_bookmark)
                 .setView(binding.getRoot())
                 .setPositiveButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
@@ -38,7 +38,6 @@ public class DialogHistory extends BaseDialog {
 
                     }
                 });
-
         return builder.create();
     }
 }

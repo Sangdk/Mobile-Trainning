@@ -7,10 +7,14 @@
         android:orientation="vertical">
 
         <EditText
+            android:textSize="@dimen/sp_17"
+            android:hint="@string/hint"
             android:id="@+id/edt_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint"
+            android:layout_margin="@dimen/dp_10"
+            android:background="@drawable/shape_drawable"
+            android:padding="@dimen/dp_6"
             android:singleLine="true" />
 
         <FrameLayout
