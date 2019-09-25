@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">People Kotlin</string>
+    <string name="title_register">Register</string>
+    <string name="name">Name</string>
+    <string name="text_gender">Gender</string>
+    <string name="text_age">Age</string>
+    <string name="text_country">Country</string>
+    <string name="create">Create</string>
+    <string name="main_title">List People</string>
+    <string name="youth">Youth</string>
+    <string name="adolescent">Adolescent</string>
+    <string name="middle_age">Middle Age</string>
+    <string name="older_people">Older People</string>
+    <string name="list">Show list</string>
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+</resources>

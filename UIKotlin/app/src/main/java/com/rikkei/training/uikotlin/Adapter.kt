@@ -25,8 +25,8 @@ class Adapter(private var data: ArrayList<Image>, private val context: Context) 
 
 
     class ImageHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val itemViewType = itemView.img_item
-        fun onBind(item: Image){
+        private val itemViewType = itemView.img_item!!
+        fun onBind(item: Image) {
             itemViewType.setImageResource(item.img!!)
         }
     }

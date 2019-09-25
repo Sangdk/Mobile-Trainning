@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_20"
+        android:text="@string/title_register"
+        android:textColor="@color/color_title"
+        android:textSize="@dimen/sp_26"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/relative_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_60">
+
+        <TextView
+            android:id="@+id/text_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:paddingTop="@dimen/dp_18"
+            android:text="ID"
+            android:textColor="@color/color_text_info"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_id"
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_60"
+            android:inputType="number" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative_id"
+        android:layout_marginTop="@dimen/dp_18">
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:paddingTop="@dimen/dp_18"
+            android:text="@string/name"
+            android:textColor="@color/color_text_info"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_name"
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_60" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative_name"
+        android:layout_marginTop="@dimen/dp_18">
+
+        <TextView
+            android:id="@+id/text_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:paddingTop="@dimen/dp_18"
+            android:text="@string/text_gender"
+            android:textColor="@color/color_text_info"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinner_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_18"
+            android:layout_toRightOf="@+id/text_gender" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_old"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative_gender"
+        android:layout_marginTop="@dimen/dp_18">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:paddingTop="@dimen/dp_18"
+            android:text="@string/text_age"
+            android:textColor="@color/color_text_info"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_age"
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_60"
+            android:inputType="number" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative_old"
+        android:layout_marginTop="@dimen/dp_18">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:paddingTop="@dimen/dp_18"
+            android:text="@string/text_country"
+            android:textColor="@color/color_text_info"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_country"
+            android:layout_width="@dimen/dp_250"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_60" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_country"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_60"
+        android:background="@drawable/drawable_button"
+        android:text="@string/create"
+        android:textAllCaps="false"
+        android:textColor="@color/color_text_info"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_country"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@drawable/drawable_button"
+        android:text="@string/list"
+        android:textAllCaps="false"
+        android:textColor="@color/color_text_info"
+        android:textStyle="bold" />
+</RelativeLayout>
