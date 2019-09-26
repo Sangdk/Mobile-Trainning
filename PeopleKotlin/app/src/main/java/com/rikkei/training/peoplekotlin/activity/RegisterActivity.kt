@@ -1,4 +1,4 @@
-package com.rikkei.training.peoplekotlin
+package com.rikkei.training.peoplekotlin.activity
 
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,8 @@ import android.view.View
 import android.widget.*
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.rikkei.training.peoplekotlin.R
+import com.rikkei.training.peoplekotlin.model.People
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
@@ -43,7 +45,10 @@ class RegisterActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        share = initSharePrefer(this)
+        share =
+            initSharePrefer(
+                this
+            )
         initView()
         register()
     }
@@ -77,7 +82,8 @@ class RegisterActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
                 val name: String = edt_name.getString()
                 val age: Int = edt_age.getString().toInt()
                 val country: String = edt_country.getString()
-                val people = People(id, name, gender, age, country)
+                val people =
+                    People(id, name, gender, age, country)
                 data.add(people)
                 val json: String = Gson().toJson(data)
                 share.put(KEY_VALUE, json)

@@ -1,4 +1,4 @@
-package com.rikkei.training.peoplekotlin
+package com.rikkei.training.peoplekotlin.model
 
 class People(
     var id: Int,
