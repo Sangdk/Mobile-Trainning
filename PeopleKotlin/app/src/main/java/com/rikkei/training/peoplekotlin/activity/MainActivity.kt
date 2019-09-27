@@ -4,11 +4,11 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.rikkei.training.peoplekotlin.BaseAdapter
@@ -39,21 +39,56 @@ class MainActivity : AppCompatActivity(),
     }
 
     private fun sortByAge() {
+        dataYouth = dataYouth.sortedWith(compareBy { it.age })
+            .toCollection(ArrayList())
+        dataAdolescent = dataAdolescent.sortedWith(compareBy { it.age })
+            .toCollection(ArrayList())
+        dataOlderPeople = dataOlderPeople.sortedWith(compareBy { it.age })
+            .toCollection(ArrayList())
+        dataMiddleAge = dataMiddleAge.sortedWith(compareBy { it.age })
+            .toCollection(ArrayList())
+
+        adapterYouth = BaseAdapter(dataYouth, this)
+        adapterAdolescent = BaseAdapter(dataAdolescent, this)
+        adapterMiddleAge = BaseAdapter(dataMiddleAge, this)
+        adapterOlderPeople = BaseAdapter(dataOlderPeople, this)
+        setData(recycler_youth, adapterYouth)
+        setData(recycler_adolescent, adapterAdolescent)
+        setData(recycler_middle_age, adapterMiddleAge)
+        setData(recycler_older_people, adapterOlderPeople)
+        adapterYouth!!.itemClickListener = this
+        adapterAdolescent!!.itemClickListener = this
+        adapterMiddleAge!!.itemClickListener = this
+        adapterOlderPeople!!.itemClickListener = this
     }
 
     private fun sortByName() {
-        dataYouth = dataYouth.sortedWith(compareBy { it.name }).toCollection(ArrayList())
-        dataAdolescent = dataAdolescent.sortedWith(compareBy { it.name }).toCollection(ArrayList())
-        dataOlderPeople =
-            dataOlderPeople.sortedWith(compareBy { it.name }).toCollection(ArrayList())
-        dataMiddleAge = dataMiddleAge.sortedWith(compareBy { it.name }).toCollection(ArrayList())
+        dataYouth = dataYouth.sortedWith(compareBy { it.name })
+            .toCollection(ArrayList())
+        dataAdolescent = dataAdolescent.sortedWith(compareBy { it.name })
+            .toCollection(ArrayList())
+        dataOlderPeople = dataOlderPeople.sortedWith(compareBy { it.name })
+            .toCollection(ArrayList())
+        dataMiddleAge = dataMiddleAge.sortedWith(compareBy { it.name })
+            .toCollection(ArrayList())
 
+        adapterYouth = BaseAdapter(dataYouth, this)
+        adapterAdolescent = BaseAdapter(dataAdolescent, this)
+        adapterMiddleAge = BaseAdapter(dataMiddleAge, this)
+        adapterOlderPeople = BaseAdapter(dataOlderPeople, this)
+        setData(recycler_youth, adapterYouth)
+        setData(recycler_adolescent, adapterAdolescent)
+        setData(recycler_middle_age, adapterMiddleAge)
+        setData(recycler_older_people, adapterOlderPeople)
+        adapterYouth!!.itemClickListener = this
+        adapterAdolescent!!.itemClickListener = this
+        adapterMiddleAge!!.itemClickListener = this
+        adapterOlderPeople!!.itemClickListener = this
+    }
 
-        Log.d("Main sort ", "${dataYouth[1].name}")
-        adapterOlderPeople!!.notifyDataSetChanged()
-        adapterAdolescent!!.notifyDataSetChanged()
-        adapterMiddleAge!!.notifyDataSetChanged()
-        adapterYouth!!.notifyDataSetChanged()
+    private fun setData(recyclerView: RecyclerView, adapter: BaseAdapter?) {
+        recyclerView.adapter = adapter
+        adapter!!.notifyDataSetChanged()
     }
 
     private lateinit var currentDataType: String

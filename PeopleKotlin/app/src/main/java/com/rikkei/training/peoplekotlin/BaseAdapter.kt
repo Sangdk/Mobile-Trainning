@@ -34,11 +34,13 @@ class BaseAdapter(private val data: ArrayList<People>, private val context: Cont
             in 60..100 -> type = "older"
         }
         holder.onBind(data[position])
-        holder.itemView.setOnClickListener {
-            itemClickListener!!.onItemClickListener(position,type!!)
-        }
-        holder.itemView.setOnLongClickListener {
-            itemClickListener!!.onItemLongClickListener(position, type!!)
+        if (itemClickListener != null) {
+            holder.itemView.setOnClickListener {
+                itemClickListener!!.onItemClickListener(position, type!!)
+            }
+            holder.itemView.setOnLongClickListener {
+                itemClickListener!!.onItemLongClickListener(position, type!!)
+            }
         }
     }
 
@@ -65,7 +67,7 @@ class BaseAdapter(private val data: ArrayList<People>, private val context: Cont
     }
 
     interface ItemClickListener {
-        fun onItemClickListener(position: Int,typeData: String)
+        fun onItemClickListener(position: Int, typeData: String)
         fun onItemLongClickListener(position: Int, typeData: String): Boolean
     }
 }
